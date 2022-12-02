@@ -3,6 +3,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+
 public class Main {
     public static void main(String[] args) {
         List<Person> people = new ArrayList<>();
@@ -12,7 +13,9 @@ public class Main {
         people.add(new Person("Гермиона", "де Вермендуа", 30));
         people.add(new Person("Дастин", "де Лаон", 15));
         people.add(new Person("Эд", "де Блуа", 20));
+        people.add(new Person("Ган", "де Гаузер", 8));
         System.out.println(people);
+        people.removeIf(p -> p.getAge() < 18);
 
         comparator = (Person o1, Person o2) -> {
             String[] s1 = o1.surname.split(" ", 3);
@@ -27,8 +30,11 @@ public class Main {
             return Integer.compare(o1.age, o2.age);
 
         };
-        Collections.sort(people,comparator);
+
+
+        Collections.sort(people, comparator);
         System.out.println(people);
+
 
     }
 }
